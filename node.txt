@@ -1,0 +1,231 @@
+   NODE JS PARTS
+.......................
+
+
+*GLOABAL 
+*MODULES(import=required(),export=module.export,to export single content=exports.content )
+   1.)fileSystem->to access,edit files 
+   2.)http module
+   3.)URL Module
+   4.)NodeMailer Module-nodemailer(npm i nodemailer)
+   5.)event module - eventEmiter
+   6.)Crypto Modules
+   7.) process module
+
+   Timer Functions
+   1. setTimeout()
+   2.setInterval()
+   3.clearTimeout()
+   4.clearinterval()
+
+   Module.
+   .........
+   Js Libraries inside a node js environment is called MODULES
+   
+
+
+   Custom Modules- User defined
+   InBuitt modules-we can use inbuilt modules as fileSystem
+
+   for inputing module: "require"
+   for exporting:"module.exports"
+
+  File System Module
+  ------------------
+   File System is a in built module to perform operations on files
+   Basic Operations
+   ----------------
+
+   readFile:fs.readFile()
+   create:fs.open()
+   update:fs.writeFile()
+   delete:fs.unlink()
+   rename:fs.rename()
+
+   http Module
+   ------------
+   - used to transfer data over hhtp
+   - http module can create a hhtp server, that listen to server port and gives a response back to the clearinterval
+   - first we have to import http module
+   - createServer()- method to create a server
+
+   Crypto Modules
+   --------------
+   using for hashing and encryption
+
+   Event Module
+   ------------
+   eventEmitter is using for creating eventEmitter
+   -we need to import events module -require('events)
+   - here we make use eventEmitter class
+   -on() method used for creating an eventEmit() used for call an eventEmit
+
+   client server architecture
+   -----------------------------
+   it includes two type of components 1) client side & 2) server side-
+   - clients side send request to the server , server resolves this request and send it back to User
+   - API
+   -Client server communication is utilizing the api for data sharing
+   -Restful Architecture:make use of http for creating the API and dat communicate as JSON data
+
+
+   FRAMEWORKS
+   ------------
+   node js
+   ------
+   express js
+   next js
+
+CRUD Operations
+----------------
+- create:post
+- read:get
+- update:put
+- delete:delete
+
+
+Package.json- configuration files
+Package-lock.jason- to hold version
+node moduled- to hold installing package localy
+
+
+
+
+
+
+      CORS(Cross Origin Resource Sharing)
+      --------------------------------------
+In a  client server architecture , client is requesting on one domin and port, server is running on another port(sometimes domain can be at same) here node server by default does not support request from outside domain or solve the issue we make use of CORS module
+
+
+SERVER CREATION
+-------------------
+
+1.)-initializing newly created project npm init -y
+
+2.)inside script key{
+   start file as"start":"node index.js"
+
+}
+
+3.)install express - it is framework of node js for creating s server
+npm i express
+
+4.)install CORS
+npm i Cross
+
+5.)install ditenv module
+used to load environment valiables from .env file 
+npm install dotenv
+
+process.env- command to access environmental variables
+
+6.)create .env file to hold environmental variables
+7.)create .gitignore file to add ignoring contents while adding project on github
+8.)create index.js file to define server
+
+
+SQL (Relational DBMS)
+
+Data storage: Data is stored in tables with rows and columns.
+Schema: Uses a fixed schema, meaning the structure of the database is predefined.
+Optimization: Designed to optimize complex joins and transactions.
+Data types: Supports a rich set of data types (e.g., integers, strings, dates, etc.).
+Query language: Uses a declarative query language (usually SQL) to interact with the database.
+ACID properties: Ensures Atomicity, Consistency, Isolation, and Durability (ACID) in transactions.
+Use cases: Commonly used in traditional business applications (such as banking, ERP systems, etc.).
+
+
+MongoDB (NoSQL DBMS)
+
+Data storage: Document-oriented database that stores data in collections of JSON-like documents.
+Schema: Uses a dynamic schema, allowing flexible and unstructured data models.
+Optimization: Optimized for scalability and performance, especially for distributed systems.
+Data types: Supports a limited set of data types compared to relational databases.
+Query language: Uses an expressive query language specific to NoSQL.
+CAP Theorem: Based on the CAP theorem, emphasizing Consistency, Availability, and Partition tolerance.
+Use cases: Ideal for handling big data and real-time web applications where scalability is critical.
+
+
+command in MongoDB
+
+----------------------
+-Show the Database : display all db's
+-use db name :redirect to particular db
+-show collections:display all collections
+-find(): To get all documents form the collections
+-findOne({name:"luminar"}): to Get a particular data statisfying condition
+-find().limit(): - to display data with a limit
+-find().sort({key:1}) sort ascending -1 for decesending
+-insertMany:Insert Mutiple Document at a time
+-InsertOne() - Insert single documents at a time
+-updateOne() - Update one single data
+-deleteOne() - Delete one single data
+-deleteMany() - delete Mutiple Document at a time
+
+mongo db
+
+db["user"].find().limit(2)
+db["user"].findOne()
+db['user'].find().sort({username:1})
+db['user'].find().sort({username:-1})
+db['user'].find().skip(1)
+db['user'].insertMany([{uname:"alen",age:22,balance:2500,debt:3000},{uname:"Vyon",age:22,balance:2000,debt:1500}])
+
+db['user'].find({age{$gt:24}}}
+db['user'].find({uname:{$in:["alal","iwki"]}}}
+db;'user'].find({age:{$gt:24,$lt:28}})
+
+
+applying queries command
+
+age greater $gt/gte lesser $lt/$listen
+$and / $ or
+$eq / $ne
+$in / $nin
+$exists 
+$set
+$inc
+$push
+
+$lookup
+Performs a left outer join to a collection in the same database to filter in documents from the "joined" collection for processing. 
+The $lookup stage adds a new array field to each input document. The new array field contains the matching documents from the "joined"
+ collection. The $lookup stage passes these reshaped documents to the next stage.
+
+{
+   $lookup:
+     {
+       from: <collection to join>,
+       localField: <field from the input documents>,
+       foreignField: <field from the documents of the "from" collection>,
+       as: <output array field>
+     }
+}
+
+Mongoose
+
+Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports Node.js and Deno (alpha).
+
+                     Mongoose  (OBM Libray)
+-----------------------------------------------------------
+-object data modeling Library for MongoDB and Nodejs
+-used to translate object in node js and represent those object in MongoDB
+-Define structure/Schema for storing document in a collections
+ schema types - (string,number,boolean...)
+ option - required,default...
+- create a model similar to collection where we can store documents
+  install - npm i Mongoose
+
+Create a DB folder
+Create s connection file to connect node applications\
+
+
+// multer
+
+/npm i multer
+Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+
+
+//Context api
+Context is designed to share data that can be considered “global” for a tree of React components, such as the current authenticated user, theme, or preferred language. For example, in the code below we manually thread through a “theme” prop in order to style the Button component:
